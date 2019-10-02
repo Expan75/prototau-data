@@ -12,7 +12,7 @@ print(raw_df.head())
 print(raw_df.info())
 
 subset = raw_df.iloc[:14738]
-skipSubset = subset.iloc[::125]
+skipSubset = subset.iloc[::175]
 
 # Scales via normalisation
 skipSubset['current'] = preprocessing.scale(skipSubset['current'])
@@ -23,6 +23,9 @@ skipSubset['pressure'] = preprocessing.scale(skipSubset['pressure'])
 data = skipSubset[['t','current','temp','voltage','pressure']]
 print(data)
 
+
+
+"""
 fig, ax = plt.subplots(1, 1)
 
 ax.spines['top'].set_visible(False)
@@ -45,10 +48,11 @@ dataCols = ['current','temp','voltage','pressure']
 for colIndex, colName in enumerate(dataCols):
     line = plt.plot(data.t,
                 data[colName],
-                lw=2.5,
+                lw=2.2,
                 color=color_sequence[colIndex],
                 label=colName)
 
 legend = ax.legend(loc='upper right', shadow=False, fontsize='medium')
 
 plt.show()
+"""
